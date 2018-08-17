@@ -26,7 +26,7 @@ const userAcl = {
 app.get('/no-auth', (req, res) => {
     const jwt = Nexmo.generateJwt(process.env.NEXMO_PRIVATE_KEY, {
         application_id: process.env.NEXMO_APP_ID,
-        sub: process.env.NEXMO_APP_USER,
+        sub: process.env.NEXMO_APP_USER_NAME,
         exp: new Date().getTime() + 86400,
         acl: userAcl
     })
