@@ -13,6 +13,8 @@
 import 'vue-tel-input/dist/vue-tel-input.css'
 import VueTelInput from 'vue-tel-input'
 
+import ConversationClient from 'nexmo-stitch'
+
 export default {
   name: 'CallFromBrowser',
   components: {
@@ -37,11 +39,30 @@ export default {
         return response.json();
       })
       .then(json => {
-          console.log(json)
+        this.conversationClient = new ConversationClient({debug: true})
+
+        return this.conversationClient.login(json.userJwt)
       })
-      .catch(error => {
+      .then(app => {
+        this.app = app
+
+        // When the active member (the user) makes a call
+        // keep a reference to the Call object so we can
+        // hang up later
+        this.app.on("member:call", (member, call) => {
+            this.call = call
+        });
+
+        // Keep track of call status so we know how to
+        // interact with the call e.g. hangup
+        this.app.on("call:status:changed", (call) => {
+            this.callInProgress = ['machine', 'timeout', 'unanswered', 'rejected', 'busy', 'failed', 'completed']
+                                      .indexOf(call.status) === -1
+        })
+    })
+    .catch(error => {
         console.error(error)
-      })
+    })
   },
 
   methods: {
@@ -60,6 +81,12 @@ export default {
     },
 
     controlCallClick() {
+      if(this.callInProgress) {
+        this.call.hangUp()
+      }
+      else if(this.phone.isValid) {
+        this.app.callPhone(this.phone.number)
+      }
     }
 
   }
