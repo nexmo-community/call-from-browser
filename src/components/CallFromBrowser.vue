@@ -27,13 +27,7 @@ export default {
         country: {}
       },
       infoMessage: "",
-      callStatus: "none"
-    }
-  },
-
-  computed: {
-    callInProgress() {
-      return false
+      callInProgress: false
     }
   },
 
