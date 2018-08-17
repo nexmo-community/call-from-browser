@@ -34,4 +34,16 @@ app.get('/no-auth', (req, res) => {
     res.json({userJwt: jwt})
 })
 
+app.get('/answer', (req, res) => {
+    const ncco = [{
+        "action": "connect",
+        "endpoint": [{
+            "type": "phone",
+            "number": req.query.to
+        }]
+    }]
+
+    res.json(ncco)
+})
+
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
