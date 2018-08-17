@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "nexmo-stitch": "^2.0.5",
     "vue": "^2.5.17",
     "vue-tel-input": "^2.0.2"
   },
