@@ -108,7 +108,7 @@ export default {
   content: '☎️';
 }
 
-.call-control.off-hook:before {
+.call-control.call-in-progress:before {
   content: '📞'
 }
 </style>
