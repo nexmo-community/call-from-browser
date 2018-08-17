@@ -31,6 +31,19 @@ export default {
     }
   },
 
+  created() {
+    fetch('http://localhost:3000/no-auth')
+      .then(response => {
+        return response.json();
+      })
+      .then(json => {
+          console.log(json)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
+
   methods: {
 
     onInput({ number, isValid, country }) {
