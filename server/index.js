@@ -37,6 +37,7 @@ app.get('/no-auth', (req, res) => {
 app.get('/answer', (req, res) => {
     const ncco = [{
         "action": "connect",
+        "from": process.env.NEXMO_FROM_NUMBER,
         "endpoint": [{
             "type": "phone",
             "number": req.query.to
