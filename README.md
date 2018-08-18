@@ -31,6 +31,7 @@ NEXMO_APP_USER_NAME=demo
 yarn install
 cd server
 yarn install
+cd ..
 ```
 
 ## Running the App Locally
