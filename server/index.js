@@ -3,7 +3,7 @@ require('dotenv').config({
     path: __dirname + '/.env'
 });
 
-const Nexmo = require('nexmo');
+const Nexmo = require('nexmo')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
@@ -11,6 +11,7 @@ const cors = require('cors')
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
+app.use( express.static(__dirname + '/../dist') )
 
 const userAcl = {
     "paths": {

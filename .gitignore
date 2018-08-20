@@ -1,5 +1,5 @@
 node_modules
-.env
+.env*
 .nexmo-app
 private.key
-dist
+# dist - allow so built apps can be pushed to Heroku
