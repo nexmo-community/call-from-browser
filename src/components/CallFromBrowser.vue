@@ -21,6 +21,13 @@ export default {
     "vue-tel-input": VueTelInput
   },
 
+  props: {
+    jwtUrl: {
+      type: String,
+      default: process.env.VUE_APP_JWT_URL || "http://localhost:3000/no-auth"
+    }
+  },
+
   data() {
     return {
       phone: {
@@ -34,28 +41,28 @@ export default {
   },
 
   created() {
-    fetch("http://localhost:3000/no-auth")
+    fetch(this.$props.jwtUrl)
       .then(response => {
         return response.json();
       })
       .then(json => {
-        this.conversationClient = new ConversationClient({ debug: true });
+        this.conversationClient = new ConversationClient({debug: true})
 
-        return this.conversationClient.login(json.userJwt);
+        return this.conversationClient.login(json.userJwt)
       })
       .then(app => {
-        this.app = app;
+        this.app = app
 
         // When the active member (the user) makes a call
         // keep a reference to the Call object so we can
         // hang up later
         this.app.on("member:call", (member, call) => {
-          this.call = call;
+            this.call = call
         });
 
         // Keep track of call status so we know how to
         // interact with the call e.g. hangup
-        this.app.on("call:status:changed", call => {
+        this.app.on("call:status:changed", (call) => {
           this.callInProgress =
             [
               "machine",
@@ -66,11 +73,11 @@ export default {
               "failed",
               "completed"
             ].indexOf(call.status) === -1;
-        });
-      })
-      .catch(error => {
-        console.error(error);
-      });
+        })
+    })
+    .catch(error => {
+        console.error(error)
+    })
   },
 
   methods: {
