@@ -76,16 +76,16 @@ git clone git@github.com:nexmo-community/call-from-browser.git
 cd call-from-browser
 ```
 
-Create a Heroku application:
+Create a Heroku application replacing `HEROKU_APP_NAME` with the name you'd like to give the app:
 
 ```sh
-heroku apps:create call-from-browser-test
+heroku apps:create HEROKU_APP_NAME
 ```
 
-And take a note of the Heroku URL your web app has e.g. https://YOUR_APP.herokuapp.com/ Then update your Nexmo application with the Heroku URL:
+And take a note of the Heroku URL your web app has e.g. https://HEROKU_APP_NAME.herokuapp.com/ Then update your Nexmo application with the Heroku URL:
 
 ```sh
-nexmo app:update NEXMO_APP_ID "call-from-browser" https://YOUR_APP.herokuapp.com/answer https://YOUR_APP.herokuapp.com/event
+nexmo app:update NEXMO_APP_ID "call-from-browser" https://HEROKU_APP_NAME.herokuapp.com/answer https://HEROKU_APP_NAME.herokuapp.com/event
 ```
 
 Set the Heroku environment variables up to match your local environment variables in `.env` but provide the full string of the `private.key` contents for the `NEXMO_PRIVATE_KEY` value:
