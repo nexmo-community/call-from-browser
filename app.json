@@ -1,0 +1,31 @@
+{
+    "name": "Call From Browser",
+    "description": "Make phone calls from a web browser with Nexmo In-App Voice and Vue.JS.",
+    "keywords": [
+      "vuejs",
+      "nexmo",
+      "nodejs",
+      "webrtc"
+    ],
+    "repository": "https://github.com/nexmo-community/call-from-browser",
+    "logo": "https://small-sharp-tool.com/logo.svg",
+    "success_url": "/",
+    "env": {
+      "NEXMO_PRIVATE_KEY": {
+        "description": "A path to a private key or the full text of a private key",
+        "required": true
+      },
+      "NEXMO_APP_ID": {
+        "description": "The ID of the Nexmo Application associated with this web app",
+        "required": true
+      },
+      "NEXMO_APP_USER_NAME": {
+        "description": "A secret key for verifying the integrity of signed cookies.",
+        "required": true
+      },
+      "NEXMO_FROM_NUMBER": {
+        "description": "A Nexmo virtual number to be set if the outbound call is to have a visible 'from' number to the caller",
+        "required": false
+      }
+    }
+  }
