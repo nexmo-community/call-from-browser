@@ -22,10 +22,17 @@ const userAcl = {
       }
 }
 
+// Support private key as a path
+// or the full contents of the file as a String
+let privateKey = process.env.NEXMO_PRIVATE_KEY;
+if(!require('fs').existsSync(privateKey)) {
+    privateKey = Buffer.from(privateKey, 'utf-8')
+}
+
 // endpoint that doesn't authenticate the user
 // it will simply return a JWT with every request
 app.get('/no-auth', (req, res) => {
-    const jwt = Nexmo.generateJwt(process.env.NEXMO_PRIVATE_KEY, {
+    const jwt = Nexmo.generateJwt(privateKey, {
         application_id: process.env.NEXMO_APP_ID,
         sub: process.env.NEXMO_APP_USER_NAME,
         exp: new Date().getTime() + 86400,
