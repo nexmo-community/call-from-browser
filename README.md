@@ -105,7 +105,7 @@ git push heroku master
 
 ### Using the Deploy to Heroku button
 
-TODO
+WIP: See https://github.com/nexmo-community/call-from-browser/tree/deploy-to-heroku-button
 
 ## Additional Development Notes
 
