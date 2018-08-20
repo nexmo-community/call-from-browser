@@ -5,10 +5,11 @@ An application that allows you to make phone calls from your web browser using N
 ## Prequisites
 
 * [A Nexmo account](https://dashboard.nexmo.com/sign-up)
+* Something like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr) for local tunneling
 
 ## Setup
 
-In the first command replaces `example.com` with a URL to a publicly accessible URL that tunnels through to your local server. We recommend using [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr) to do this.
+Replace `example.com` with a URL to a publicly accessible URL that tunnels through to your local server.
 
 ```sh
 nexmo app:create call-from-browser https://example.com/answer https://example.com/event --keyfile=server/private.key
@@ -48,9 +49,61 @@ Run the application server:
 node server/index.js
 ```
 
-Navigate to the Vue.JS application at `http://localhost:8080`.
+Setup a local tunnel to the Node server:
 
-## Running the App on Heroku
+```sh
+ngrok http 3000
+```
+
+Update the Nexmo Application with the Ngrok (or other) URL e.g.:
+
+```sh
+nexmo app:update NEXMO_APP_ID "call-from-browser" https://SUBDOMAIN.ngrok.io/answer https://SUBDOMAIN.ngrok.io/event
+```
+
+Navigate to the Vue.JS application at `http://localhost:8080`, enter a valid phone number and click the button to make a call.
+
+## Deploying to Heroku
+
+### Using CLI
+
+Ensure you have run through the *Setup* steps above. You'll additionally need the [Heroku CLI](https://devcenter.heroku.com/categories/command-line) installed.
+
+Clone the repo:
+
+```sh
+git clone git@github.com:nexmo-community/call-from-browser.git
+cd call-from-browser
+```
+
+Create a Heroku application:
+
+```sh
+heroku apps:create call-from-browser-test
+```
+
+And take a note of the Heroku URL your web app has e.g. https://YOUR_APP.herokuapp.com/ Then update your Nexmo application with the Heroku URL:
+
+```sh
+nexmo app:update NEXMO_APP_ID "call-from-browser" https://YOUR_APP.herokuapp.com/answer https://YOUR_APP.herokuapp.com/event
+```
+
+Set the Heroku environment variables up to match your local environment variables in `.env` but provide the full string of the `private.key` contents for the `NEXMO_PRIVATE_KEY` value:
+
+```sh
+heroku config:set NEXMO_PRIVATE_KEY="$(cat server/private.key)"
+heroku config:set NEXMO_APP_ID=YOUR_APP_ID # see .env or .nexmo-app for value
+heroku config:set NEXMO_APP_USER_NAME=demo
+heroku config:set NEXMO_FROM_NUMBER=YOUR_NEXMO_NUMBER # set if you have a Nexmo Virtual Number
+```
+
+Push the code to Heroku:
+
+```sh
+git push heroku master
+```
+
+### Using the Deploy to Heroku button
 
 TODO
 
