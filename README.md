@@ -2,11 +2,11 @@
 
 An application that allows you to make phone calls from your web browser using Nexmo In-App Voice and Vue.JS.
 
-You can read how the [Make a Phone Call from a Web Browser with Nexmo In-App Voice and Vue.JS]( https://www.nexmo.com/blog/2018/08/20/phone-call-web-b…-voice-vue-js-dr/) app was built on the Nexmo blog.
+You can read how the [Make a Phone Call from a Web Browser with Nexmo In-App Voice and Vue.JS]( https://www.nexmo.com/blog/2018/08/21/phone-call-web-browser-nexmo-in-app-voice-vue-js-dr) app was built on the Nexmo blog.
 
 ## Prequisites
 
-* [A Nexmo account](https://dashboard.nexmo.com/sign-up)
+* [A Nexmo account](https://dashboard.nexmo.com/sign-up?utm_source=DEV_REL&utm_medium=github&utm_campaign=click-t-call)
 * Something like [Ngrok](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr) for local tunneling
 
 ## Setup
