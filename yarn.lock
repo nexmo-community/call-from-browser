@@ -4523,8 +4523,7 @@ neo-async@^2.5.0:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.2.tgz#489105ce7bc54e709d736b195f82135048c50fcc"
 
 nexmo-stitch@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/nexmo-stitch/-/nexmo-stitch-2.0.5.tgz#f873fc1a3af98ce2b3ab3ae8bd6ad30dbe6e6938"
+  version "2.1.0"
   dependencies:
     detect-browser "^3.0.0"
     loglevel "^1.6.1"
