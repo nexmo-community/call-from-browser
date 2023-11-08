@@ -467,8 +467,7 @@ negotiator@0.6.1:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
 nexmo@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/nexmo/-/nexmo-2.3.2.tgz#b5625474985dd2fa757f457b3a0a610bf770ff23"
+  version "2.4.0"
   dependencies:
     jsonwebtoken "^8.2.1"
     request "^2.83.0"
