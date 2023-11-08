@@ -6806,8 +6806,7 @@ vue-style-loader@^4.1.0:
     loader-utils "^1.0.2"
 
 vue-tel-input@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/vue-tel-input/-/vue-tel-input-2.0.2.tgz#09a92f7a75079ff4253022cba48da218ed1a50bc"
+  version "2.0.7"
   dependencies:
     get-json "^1.0.0"
     libphonenumber-js "^0.4.44"
