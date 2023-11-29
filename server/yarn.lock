@@ -66,8 +66,7 @@ body-parser@1.18.2:
     type-is "~1.6.15"
 
 body-parser@^1.18.3:
-  version "1.18.3"
-  resolved "https://registry.yarnpkg.com/body-parser/-/body-parser-1.18.3.tgz#5b292198ffdd553b3a0f20ded0592b956955c8b4"
+  version "1.19.0"
   dependencies:
     bytes "3.0.0"
     content-type "~1.0.4"
